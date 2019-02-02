@@ -15,7 +15,7 @@ jobs:
         mariadb: '10.2'
       install: skip
       before_script:
-        - mysql -uroot < databases/tracker/create_databases.sql
+        - mysql --user=root --password -s  < databases/tracker/create_databases.sql
         - curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.1.1/flyway-commandline-5.1.1-linux-x64.tar.gz | tar xvz
         - flyway-*/flyway -url="jdbc:mysql://localhost:3306/tracker_test" -locations=filesystem:databases/tracker -user=tracker -password= clean migrate
       script: gradle clean build
@@ -32,7 +32,7 @@ jobs:
       language: java
       before_install:
         - wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
-        - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+        - echo "deb https://packages.cloudfou ndry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         - sudo apt-get update
         - sudo apt-get install cf-cli
         - sudo apt-get -y install jq
@@ -43,7 +43,7 @@ jobs:
       before_deploy:
         - echo "Deploying $RELEASE_TAG to review"
       after_success:
-        - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s review
+        - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s review1
         - scripts/migrate-databases.sh pal-tracker .
       deploy:
         provider: cloudfoundry
