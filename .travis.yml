@@ -41,7 +41,7 @@ jobs:
         - echo "Downloading $RELEASE_TAG"
         - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-practice/releases/download/$RELEASE_TAG/pal-tracker.jar
       before_deploy:
-        - echo "Deploying $RELEASE_TAG to review"
+        - echo "Deploying $RELEASE_TAG to review1"
       after_success:
         - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s review1
         - scripts/migrate-databases.sh pal-tracker .
