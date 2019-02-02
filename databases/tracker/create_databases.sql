@@ -3,5 +3,8 @@ DROP DATABASE IF EXISTS tracker_test;
 
 CREATE DATABASE tracker_dev;
 CREATE DATABASE tracker_test;
-grant all privileges on tracker_dev.* to 'tracker'@'localhost' identified by '';
-grant all privileges on tracker_test.* to 'tracker'@'localhost' identified by '';
+
+CREATE USER IF NOT EXISTS 'tracker'@'localhost'
+ IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON tracker_dev.* TO 'tracker' @'localhost';
+GRANT ALL PRIVILEGES ON tracker_test.* TO 'tracker' @'localhost';
