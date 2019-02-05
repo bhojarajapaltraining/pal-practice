@@ -8,3 +8,17 @@ applications:
   - tracker-database
   env:
     WELCOME_MESSAGE: Hello from the review environment
+    VCAP_SERVICES: {
+                 "p-mysql":
+                   {"credentials":{"jdbcUrl": "jdbc:mysql://192.168.112.28:3306/service_instance_db?user=bf02d34df020439ba6b171da127daa3f\u0026password=3823ni8pophwuudf\u0026useSSL=false"},
+                     "name":"service_instance_db",
+                     "credentials": {
+                      "uri":"mysql://81b64706d24b49c0b552cb8e0ba7935e:vx7h0588qir542p3@192.168.112.28:3306/service_instance_db?reconnect=true",
+                      "username": "81b64706d24b49c0b552cb8e0ba7935e",
+                      }
+                   }
+
+
+
+
+
