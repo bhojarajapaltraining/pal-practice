@@ -7,7 +7,7 @@ applications:
   services:
   - tracker-database
   env:
-    WELCOME_MESSAGE: Hello from the review environment for security
+    WELCOME_MESSAGE: Hello from the review environment for security demo
 
 
 
